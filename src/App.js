@@ -4,9 +4,9 @@ import { GlobalContextProvider } from "./context";
 
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
-import "./scss/main.scss";
-
 import { PlayerPage, HomePage, GifPage } from "./pages";
+
+import "./scss/main.scss";
 
 const App = () => {
   return (

@@ -12,13 +12,12 @@ const GifPage = () => {
     <React.Fragment>
       <Container>
         <iframe
-          src="https://giphy.com/embed/3oEjHH571DqgK1YNMI"
+          title="gif"
+          src="https://giphy.com/embed/26h0p1JH3a31KcczS"
           width="480"
           height="270"
           frameBorder="0"
-          className="gif"
           allowFullScreen
-          title="gif"
         ></iframe>
       </Container>
       <Button text={"Back"} clickHandler={clickHandler} />
