@@ -5,23 +5,32 @@ import { PlayerContext } from "../../context";
 import YouTube from "react-youtube";
 
 import { Container, Button } from "../../components";
+
 import playerProps from "../../utils/playerProps";
+import playerTime from "../../utils/playerTime";
 
 const PlayerPage = () => {
   const { url } = useContext(PlayerContext);
+  const videoId = url.slice(url.length - 11);
 
   let navigate = useNavigate();
 
   const clickHandler = () => {
-    navigate(-1);
+    navigate("/");
   };
+
+  useEffect(() => {
+    const currentTime = new Date().getTime();
+
+    playerTime.setTime(videoId, 0, currentTime);
+  }, []);
 
   return (
     <React.Fragment>
       <Container>
         <YouTube
           opts={playerProps.opts()}
-          videoId={url.slice(url.length - 11)}
+          videoId={videoId}
           onStateChange={playerProps.videoStateChange}
         />
       </Container>
