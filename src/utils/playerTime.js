@@ -1,26 +1,26 @@
 class playerTime {
-  setTime = (videoId, stopTime, sessionExitTime) => {
+  currentTime = () => {
+    return new Date().getTime();
+  };
+  setTime = (videoId) => {
+    // if (!playerStorage && playerStorage.videoId !== videoId) {
+    console.log("X");
     localStorage.setItem(
       "playerStorage",
       JSON.stringify({
         videoId: videoId,
-        stopTime: stopTime,
-        sessionExitTime: sessionExitTime,
+        startTime: this.currentTime(),
       })
     );
   };
+  deleteTime = () => {
+    localStorage.removeItem("playerStorage");
+  };
   checkTime = () => {
-    const now = new Date().getTime();
-
-    const playerStorage = JSON.parse(localStorage.getItem("playerStorage"));
-
-    if (playerStorage) {
-      const sessionExitTime = new Date(playerStorage.sessionExitTime).getTime();
-      const difference = now - sessionExitTime;
-      const playTime = playerStorage.stopTime + difference;
-
-      return playTime;
-    }
+    // if (playerStorage) {
+    //   const playTime = this.currentTime() - playerStorage.startTime;
+    //   return playTime;
+    // }
   };
 }
 

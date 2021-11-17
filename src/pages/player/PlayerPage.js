@@ -11,19 +11,10 @@ import playerTime from "../../utils/playerTime";
 
 const PlayerPage = () => {
   const { url } = useContext(PlayerContext);
-  const videoId = url.slice(url.length - 11);
 
   let navigate = useNavigate();
 
-  const clickHandler = () => {
-    navigate("/");
-  };
-
-  useEffect(() => {
-    const currentTime = new Date().getTime();
-
-    playerTime.setTime(videoId, 0, currentTime);
-  }, []);
+  const videoId = url.slice(url.length - 11);
 
   return (
     <React.Fragment>
@@ -34,7 +25,8 @@ const PlayerPage = () => {
           onStateChange={playerProps.videoStateChange}
         />
       </Container>
-      <Button text={"Edit"} clickHandler={clickHandler} />
+      <Button text={"Edit"} clickHandler={() => navigate("/")} />
+      <Button text={"GIF"} clickHandler={() => navigate("/gif")} />
     </React.Fragment>
   );
 };

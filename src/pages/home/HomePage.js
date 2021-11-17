@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+
 import { useNavigate } from "react-router-dom";
+import { PlayerContext } from "../../context";
 
 import { Container, Form, Button } from "../../components/index";
 
 const HomePage = () => {
   let navigate = useNavigate();
+  const { addUrl } = useContext(PlayerContext);
 
   const clickHandler = () => {
+    addUrl();
     navigate("/player");
   };
   return (
