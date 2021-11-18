@@ -14,14 +14,12 @@ const PlayerPage = () => {
 
   let navigate = useNavigate();
 
-  const videoId = url.slice(url.length - 11);
-
   return (
     <React.Fragment>
       <Container>
         <YouTube
           opts={playerProps.opts()}
-          videoId={videoId}
+          videoId={url.slice(url.length - 11)}
           onStateChange={playerProps.videoStateChange}
         />
       </Container>

@@ -1,4 +1,4 @@
-class LocalStorageService {
+class localStorageService {
   save(urlData) {
     localStorage.setItem("allUrls", JSON.stringify(urlData));
   }
@@ -6,6 +6,10 @@ class LocalStorageService {
   get() {
     localStorage.getItem("allUrls");
   }
+
+  remove() {
+    localStorage.removeItem("currentVideo");
+  }
 }
 
-export default new LocalStorageService();
+export default new localStorageService();
