@@ -1,4 +1,5 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState } from "react";
+import playerTime from "../utils/playerTime";
 
 const PlayerContext = createContext();
 
@@ -7,6 +8,16 @@ const PlayerContextProvider = (props) => {
     url: "",
     startTime: 0,
   });
+  const [videos, setVideos] = useState({});
+
+  const addNewObject = () => {
+    if (videos.hasOwnProperty(currentVideo?.url)) {
+      // playerTime.checkTime()
+    } else {
+      videos[currentVideo?.url] = currentVideo?.startTime;
+    }
+    console.log(videos);
+  };
 
   const addUrl = () => {
     localStorage.removeItem("currentVideo");
@@ -17,6 +28,7 @@ const PlayerContextProvider = (props) => {
     addUrl,
     setCurrentVideo,
     currentVideo,
+    addNewObject,
   };
 
   return (

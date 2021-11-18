@@ -2,23 +2,10 @@ class playerTime {
   currentTime = () => {
     return new Date().getTime();
   };
-  setTime = (videoId) => {
-    // if (!playerStorage && playerStorage.videoId !== videoId) {
-    console.log("X");
-    localStorage.setItem(
-      "playerStorage",
-      JSON.stringify({
-        videoId: videoId,
-        startTime: this.currentTime(),
-      })
-    );
-  };
-  deleteTime = () => {
-    localStorage.removeItem("playerStorage");
-  };
   checkTime = (startTime) => {
-    if (startTime) {
+    if (startTime !== 0) {
       const timeInMilisec = this.currentTime() - startTime;
+      console.log("new", (timeInMilisec / 1000).toFixed(0));
       return ((timeInMilisec % 60000) / 1000).toFixed(0);
     }
   };

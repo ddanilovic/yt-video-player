@@ -7,9 +7,10 @@ import { Container, Form, Button } from "../../components/index";
 
 const HomePage = () => {
   let navigate = useNavigate();
-  const { addUrl } = useContext(PlayerContext);
+  const { addUrl, addNewObject } = useContext(PlayerContext);
 
   const clickHandler = () => {
+    addNewObject();
     addUrl();
     navigate("/player");
   };

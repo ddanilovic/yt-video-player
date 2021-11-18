@@ -10,18 +10,18 @@ import playerProps from "../../utils/playerProps";
 import playerTime from "../../utils/playerTime";
 
 const PlayerPage = () => {
-  const { url, currentVideo, setCurrentVideo } = useContext(PlayerContext);
+  const { currentVideo, setCurrentVideo } = useContext(PlayerContext);
 
   let navigate = useNavigate();
+
   const localData = JSON.parse(localStorage.getItem("currentVideo"));
+
   const playTime = playerTime.checkTime(currentVideo?.startTime);
   const stringTime = playTime?.toString();
   console.log(stringTime);
 
   useEffect(() => {
     if (currentVideo.url === "") setCurrentVideo(localData);
-    console.log("get local and set state", currentVideo);
-    console.log(playTime);
   }, [currentVideo.url]);
 
   return (
