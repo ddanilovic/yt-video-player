@@ -14,19 +14,24 @@ const PlayerPage = () => {
 
   let navigate = useNavigate();
   const localData = JSON.parse(localStorage.getItem("currentVideo"));
+  const playTime = playerTime.checkTime(currentVideo?.startTime);
+  const stringTime = playTime?.toString();
+  console.log(stringTime);
 
   useEffect(() => {
     if (currentVideo.url === "") setCurrentVideo(localData);
     console.log("get local and set state", currentVideo);
+    console.log(playTime);
   }, [currentVideo.url]);
 
   return (
     <React.Fragment>
       <Container>
         <YouTube
-          opts={playerProps.opts()}
+          opts={playerProps.opts(stringTime)}
           videoId={currentVideo?.url.slice(currentVideo?.url.length - 11)}
           onStateChange={playerProps.videoStateChange}
+          onReady={playerProps.onReady}
         />
       </Container>
       <Button text={"Edit"} clickHandler={() => navigate("/")} />

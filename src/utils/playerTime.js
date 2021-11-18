@@ -16,11 +16,11 @@ class playerTime {
   deleteTime = () => {
     localStorage.removeItem("playerStorage");
   };
-  checkTime = () => {
-    // if (playerStorage) {
-    //   const playTime = this.currentTime() - playerStorage.startTime;
-    //   return playTime;
-    // }
+  checkTime = (startTime) => {
+    if (startTime) {
+      const timeInMilisec = this.currentTime() - startTime;
+      return ((timeInMilisec % 60000) / 1000).toFixed(0);
+    }
   };
 }
 

@@ -5,7 +5,7 @@ const PlayerContext = createContext();
 const PlayerContextProvider = (props) => {
   const [currentVideo, setCurrentVideo] = useState({
     url: "",
-    currentTime: 0,
+    startTime: 0,
   });
 
   const addUrl = () => {
