@@ -1,12 +1,7 @@
-const duration = {};
 class playerProps {
-  videoOnReady = (event) => {
-    duration["key"] = event.target.getDuration();
-  };
   opts = (time) => {
     const opts = {
-      height: "390",
-      width: "640",
+      width: "100%",
       playerVars: {
         autoplay: 1,
         start: time,

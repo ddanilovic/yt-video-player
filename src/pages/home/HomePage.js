@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 import { PlayerContext } from "../../context";
@@ -26,8 +26,6 @@ const HomePage = () => {
   const errorCallback = () => {
     alert("please fill in the input field");
   };
-
-  useEffect(() => {}, []);
 
   return (
     <React.Fragment>

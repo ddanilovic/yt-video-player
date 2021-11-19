@@ -8,15 +8,26 @@
   padding: 0.25rem;
   text-transform: capitalize;
   letter-spacing: 2px;
-  border-top-right-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
+  border-radius: 0.25rem;
   cursor: pointer;
   content: #49a6e9;
   transition: all 0.3s linear;
   font-size: 0.85rem;
+  margin: 20px auto;
 
   &:hover {
     background: #49a6e9;
     color: #fff;
+  }
+
+  &__pink {
+    background: #f98b9d;
+    color: #e94999;
+    content: #e9497e;
+
+    &:hover {
+      background: #e94979;
+      color: #fff;
+    }
   }
 }

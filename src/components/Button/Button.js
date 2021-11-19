@@ -1,8 +1,6 @@
 import React from "react";
 
-const Button = (props) => {
-  const { text, color, clickHandler } = props;
-
+const Button = ({ text, color, clickHandler }) => {
   return (
     <React.Fragment>
       <button

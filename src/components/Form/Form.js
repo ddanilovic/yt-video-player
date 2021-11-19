@@ -1,12 +1,13 @@
 import React from "react";
 
-const Form = (props) => {
+const Form = ({ text, formHandler }) => {
   return (
-    <form>
+    <form className="form">
       <input
+        className="form__input"
         type="text"
-        placeholder={props.text}
-        onChange={(e) => props.formHandler(e)}
+        placeholder={text}
+        onChange={(e) => formHandler(e)}
       />
     </form>
   );

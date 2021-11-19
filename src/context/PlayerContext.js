@@ -16,15 +16,14 @@ const PlayerContextProvider = (props) => {
         url: inputText,
         startTime: playerTime.currentTime(),
       };
+
       setCurrentVideo(videoObj);
       setLocalData(videoObj);
-
       successCallback();
-      console.log("da");
+
       return;
     }
     errorCallback();
-    console.log("ne");
   };
 
   const setLocalData = (videoObj) => {

@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { PlayerContext } from "../../context";
 
 import YouTube from "react-youtube";
 
@@ -8,6 +7,8 @@ import { Container, Button } from "../../components";
 
 import playerProps from "../../utils/playerProps";
 import playerTime from "../../utils/playerTime";
+
+import { PlayerContext } from "../../context";
 
 const PlayerPage = () => {
   const { currentVideo, setCurrentVideo } = useContext(PlayerContext);
@@ -19,7 +20,7 @@ const PlayerPage = () => {
   const playTime = playerTime.checkTime(currentVideo?.startTime).toString();
 
   useEffect(() => {
-    if (currentVideo.url === "") setCurrentVideo(localData);
+    if (!currentVideo.url) setCurrentVideo(localData);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentVideo.url]);
 
@@ -29,11 +30,14 @@ const PlayerPage = () => {
         <YouTube
           opts={playerProps.opts(playTime)}
           videoId={playerTime.videoId(currentVideo)}
-          onReady={playerProps.videoOnReady}
         />
       </Container>
       <Button text={"Edit"} clickHandler={() => navigate("/")} />
-      <Button text={"GIF"} clickHandler={() => navigate("/gif")} />
+      <Button
+        text={"GIF"}
+        color={"pink"}
+        clickHandler={() => navigate("/gif")}
+      />
     </React.Fragment>
   );
 };
