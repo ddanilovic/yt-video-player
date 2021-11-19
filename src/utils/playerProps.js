@@ -1,14 +1,15 @@
+const duration = {};
 class playerProps {
+  videoOnReady = (event) => {
+    duration["key"] = event.target.getDuration();
+  };
   opts = (time) => {
-    console.log("time", time);
-    const timePlaceholder = time ? time : 0;
-
     const opts = {
       height: "390",
       width: "640",
       playerVars: {
         autoplay: 1,
-        start: "60",
+        start: time,
       },
     };
     return opts;

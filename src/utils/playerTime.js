@@ -3,11 +3,11 @@ class playerTime {
     return new Date().getTime();
   };
   checkTime = (startTime) => {
-    if (startTime !== 0) {
-      const timeInMilisec = this.currentTime() - startTime;
-      console.log("new", (timeInMilisec / 1000).toFixed(0));
-      return ((timeInMilisec % 60000) / 1000).toFixed(0);
-    }
+    const timeInMilisec = this.currentTime() - startTime;
+    return (timeInMilisec / 1000).toFixed(0);
+  };
+  videoId = (currentVideo) => {
+    return currentVideo.url.slice(currentVideo.url.length - 11);
   };
 }
 

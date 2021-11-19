@@ -1,4 +1,5 @@
 import React, { createContext, useState } from "react";
+
 import playerTime from "../utils/playerTime";
 
 const PlayerContext = createContext();
@@ -8,27 +9,32 @@ const PlayerContextProvider = (props) => {
     url: "",
     startTime: 0,
   });
-  const [videos, setVideos] = useState({});
 
-  const addNewObject = () => {
-    if (videos.hasOwnProperty(currentVideo?.url)) {
-      // playerTime.checkTime()
-    } else {
-      videos[currentVideo?.url] = currentVideo?.startTime;
+  const addStartTime = (inputText, successCallback, errorCallback) => {
+    if (inputText !== "") {
+      const videoObj = {
+        url: inputText,
+        startTime: playerTime.currentTime(),
+      };
+      setCurrentVideo(videoObj);
+      setLocalData(videoObj);
+
+      successCallback();
+      console.log("da");
+      return;
     }
-    console.log(videos);
+    errorCallback();
+    console.log("ne");
   };
 
-  const addUrl = () => {
-    localStorage.removeItem("currentVideo");
-    localStorage.setItem("currentVideo", JSON.stringify(currentVideo));
+  const setLocalData = (videoObj) => {
+    localStorage.setItem("currentVideo", JSON.stringify(videoObj));
   };
 
   const providerValue = {
-    addUrl,
+    addStartTime,
     setCurrentVideo,
     currentVideo,
-    addNewObject,
   };
 
   return (
